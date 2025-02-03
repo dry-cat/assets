@@ -1,27 +1,33 @@
 #include <iostream>
 
-#include <assimp/Importer.hpp>
-#include <assimp/Exporter.hpp>
-#include <assimp/scene.h>
+#define CGLTF_IMPLEMENTATION
+#define CGLTF_WRITE_IMPLEMENTATION
+#include "cgltf_write.h"
 
-int main() {
-    Assimp::Importer importer;
-    Assimp::Exporter exporter;
+int main () {
+    cgltf_data *data = NULL;
 
-    const auto *scene = importer.ReadFile("../AnimatedMorphCube.gltf", 0);
-
-    if (!scene) {
-        std::cout << importer.GetErrorString() << '\n';
-        return -1;
+    {
+        cgltf_options options = {};
+        cgltf_result result =
+            cgltf_parse_file(&options, "../AnimatedMorphCube.gltf", &data);
+        if (result != cgltf_result_success) {
+            std::cout << "Could not parse file.\n";
+            return -1;
+        }
     }
 
-    std::cout << scene->mRootNode->mName.C_Str() << '\n';
-
-    aiReturn rv = exporter.Export(scene, "gltf", "../out/AnimatedMorphCube.gltf");
-    if (rv != aiReturn::aiReturn_SUCCESS) {
-        std::cout << exporter.GetErrorString() << '\n';
-        return -1;
+    {
+        cgltf_options options = {};
+        cgltf_result result =
+            cgltf_write_file(&options, "../out/AnimatedMorphCube.gltf", data);
+        if (result != cgltf_result_success) {
+            std::cout << "Could not write file.\n";
+            return -1;
+        }
     }
+
+    cgltf_free(data);
 
     return 0;
 }
