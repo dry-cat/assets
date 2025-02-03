@@ -48,3 +48,4 @@ CMakeUserPresets.json
 
 # Ignore build
 build/
+2.0/
