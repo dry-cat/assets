@@ -17,7 +17,7 @@ int main() {
 
     std::cout << scene->mRootNode->mName.C_Str() << '\n';
 
-    aiReturn rv = exporter.Export(scene, "gltf", "../out/AnimatedMorphCube.gltf");
+    aiReturn rv = exporter.Export(scene, "gltf2", "../out/AnimatedMorphCube.gltf");
     if (rv != aiReturn::aiReturn_SUCCESS) {
         std::cout << exporter.GetErrorString() << '\n';
         return -1;
