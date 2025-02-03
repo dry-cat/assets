@@ -1,13 +1,16 @@
 {
     "asset": {
-        "version": "1.0",
+        "version": "2.0",
         "generator": "Open Asset Import Library (assimp v5.4.53b5dba4)"
     },
-    "accessors": {
-        "Cube_accessor": {
-            "bufferView": "Cube_view",
+    "extensionsUsed": [
+        "KHR_materials_volume",
+        "FB_ngon_encoding"
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
             "byteOffset": 0,
-            "byteStride": 0,
             "componentType": 5126,
             "count": 24,
             "type": "VEC3",
@@ -22,10 +25,9 @@
                 -0.009999999776482582
             ]
         },
-        "Cube_accessor_0": {
-            "bufferView": "Cube_view_0",
+        {
+            "bufferView": 1,
             "byteOffset": 0,
-            "byteStride": 0,
             "componentType": 5126,
             "count": 24,
             "type": "VEC3",
@@ -40,11 +42,27 @@
                 -1.0
             ]
         },
-        "Cube_accessor_1": {
-            "bufferView": "Cube_view_1",
+        {
+            "bufferView": 2,
             "byteOffset": 0,
-            "byteStride": 0,
-            "componentType": 5123,
+            "componentType": 5126,
+            "count": 24,
+            "type": "VEC3",
+            "max": [
+                1.0,
+                0.0,
+                -0.0
+            ],
+            "min": [
+                1.0,
+                0.0,
+                -0.0
+            ]
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5125,
             "count": 36,
             "type": "SCALAR",
             "max": [
@@ -53,113 +71,137 @@
             "min": [
                 0
             ]
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "type": "VEC3",
+            "max": [
+                0.0,
+                0.018932530656456947,
+                0.0
+            ],
+            "min": [
+                0.0,
+                0.0,
+                0.0
+            ]
+        },
+        {
+            "bufferView": 5,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 24,
+            "type": "VEC3",
+            "max": [
+                0.0,
+                0.019890835508704185,
+                0.0
+            ],
+            "min": [
+                0.0,
+                0.0,
+                0.0
+            ]
         }
-    },
-    "buffers": {
-        "../out/AnimatedMorphCube": {
-            "byteLength": 648,
-            "type": "arraybuffer",
-            "uri": "../out/AnimatedMorphCube.bin"
+    ],
+    "animations": [
+        {
+            "name": "Square",
+            "channels": [],
+            "samplers": []
         }
-    },
-    "bufferViews": {
-        "Cube_view": {
-            "buffer": "../out/AnimatedMorphCube",
+    ],
+    "buffers": [
+        {
+            "byteLength": 1584,
+            "uri": "AnimatedMorphCube.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
             "byteOffset": 0,
             "byteLength": 288,
             "target": 34962
         },
-        "Cube_view_0": {
-            "buffer": "../out/AnimatedMorphCube",
+        {
+            "buffer": 0,
             "byteOffset": 288,
             "byteLength": 288,
             "target": 34962
         },
-        "Cube_view_1": {
-            "buffer": "../out/AnimatedMorphCube",
+        {
+            "buffer": 0,
             "byteOffset": 576,
-            "byteLength": 72,
+            "byteLength": 288,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 864,
+            "byteLength": 144,
             "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 1008,
+            "byteLength": 288
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 1296,
+            "byteLength": 288
         }
-    },
-    "materials": {
-        "Material": {
-            "values": {
-                "ambient": [
-                    0.0,
-                    0.0,
-                    0.0,
-                    1.0
-                ],
-                "diffuse": [
+    ],
+    "materials": [
+        {
+            "name": "Material",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
                     0.6038274168968201,
                     0.6038274168968201,
                     0.6038274168968201,
                     1.0
                 ],
-                "specular": [
-                    0.0,
-                    0.0,
-                    0.0,
-                    1.0
-                ],
-                "emission": [
-                    0.0,
-                    0.0,
-                    0.0,
-                    1.0
-                ],
-                "shininess": 250.0
+                "metallicFactor": 0.0,
+                "roughnessFactor": 0.5
             }
         },
-        "material": {
-            "values": {
-                "ambient": [
-                    0.0,
-                    0.0,
-                    0.0,
-                    1.0
-                ],
-                "diffuse": [
-                    1.0,
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "specular": [
-                    0.0,
-                    0.0,
-                    0.0,
-                    1.0
-                ],
-                "emission": [
-                    0.0,
-                    0.0,
-                    0.0,
-                    1.0
-                ],
-                "shininess": 0.0
-            }
+        {
+            "name": "material"
         }
-    },
-    "meshes": {
-        "Cube": {
-            "name": "",
+    ],
+    "meshes": [
+        {
+            "name": "Cube",
             "primitives": [
                 {
                     "mode": 4,
-                    "material": "Material",
-                    "indices": "Cube_accessor_1",
+                    "material": 0,
+                    "indices": 3,
                     "attributes": {
-                        "POSITION": "Cube_accessor",
-                        "NORMAL": "Cube_accessor_0"
-                    }
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TANGENT": 2
+                    },
+                    "targets": [
+                        {
+                            "POSITION": 4
+                        },
+                        {
+                            "POSITION": 5
+                        }
+                    ]
                 }
             ]
         }
-    },
-    "nodes": {
-        "AnimatedMorphCube": {
+    ],
+    "nodes": [
+        {
+            "name": "AnimatedMorphCube",
             "matrix": [
                 -100.0,
                 0.0,
@@ -178,17 +220,15 @@
                 0.0,
                 1.0
             ],
-            "meshes": [
-                "Cube"
-            ]
+            "mesh": 0
         }
-    },
-    "scenes": {
-        "defaultScene": {
+    ],
+    "scenes": [
+        {
             "nodes": [
-                "AnimatedMorphCube"
+                0
             ]
         }
-    },
-    "scene": "defaultScene"
+    ],
+    "scene": 0
 }
